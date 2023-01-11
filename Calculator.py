@@ -26,9 +26,9 @@ class Calculator:
         buttonsDict = {}
 
         # button dimensions
-        buttonWidth = 6
-        buttonHeight = 2
-        buttonFont = 'Calibri 16'
+        BUTTON_WIDTH = 6
+        BUTTON_HEIGHT = 2
+        BUTTON_FONT = 'Calibri 16'
 
         # creates display box at top of screen
         self.expressionBox = tk.Entry(self.window, insertontime=0, width=24, font='Calibri 20') # TODO does font change?
@@ -36,7 +36,7 @@ class Calculator:
 
         # creates buttons 0 - 9
         for i in range(10):
-            buttonsDict[i] = tk.Button(self.window, text=str(i), command=lambda i=i: self.updateExpression(str(i)), font=buttonFont, width=buttonWidth, height=buttonHeight)
+            buttonsDict[i] = tk.Button(self.window, text=str(i), command=lambda i=i: self.updateExpression(str(i)), font=BUTTON_FONT, width=BUTTON_WIDTH, height=BUTTON_HEIGHT)
             if i < 5:
                 buttonsDict[i].grid(row=1, column=i)
             else:
@@ -45,12 +45,12 @@ class Calculator:
         # create operator buttons * / + - =
         operators = ['*', '/', '+', '-', '=']
         for i, operator in enumerate(operators):
-            buttonsDict[operator] = tk.Button(self.window, text=operator, command=lambda i=operators[i]: self.updateExpression(i), bg='#7986CB', font=buttonFont, width=buttonWidth, height=buttonHeight)
+            buttonsDict[operator] = tk.Button(self.window, text=operator, command=lambda i=operators[i]: self.updateExpression(i), bg='#7986CB', font=BUTTON_FONT, width=BUTTON_WIDTH, height=BUTTON_HEIGHT)
             buttonsDict[operator].grid(row=3, column=i)
         buttonsDict['='].config(bg='#81C784', command=lambda: self.evaluateExpression())
 
         # create clear button
-        buttonsDict['clear'] = tk.Button(self.window, text='clear', command=lambda: self.clearExpression(), bg='#FF8A80', font=buttonFont, width=25, height=buttonHeight)
+        buttonsDict['clear'] = tk.Button(self.window, text='clear', command=lambda: self.clearExpression(), bg='#FF8A80', font=BUTTON_FONT, width=25, height=BUTTON_HEIGHT)
         buttonsDict['clear'].grid(row=4, columnspan=5)
 
     # updates displayed expression text
