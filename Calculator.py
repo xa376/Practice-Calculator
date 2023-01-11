@@ -1,5 +1,4 @@
 import tkinter as tk
-import PIL as pil
 
 # contains calculator window and all its related functions
 class Calculator:
